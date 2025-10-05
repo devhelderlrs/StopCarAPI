@@ -30,3 +30,4 @@ C:\Users\Helder\source\repos\StopCar.API\obj\Debug\net8.0\refint\StopCar.API.dll
 C:\Users\Helder\source\repos\StopCar.API\obj\Debug\net8.0\StopCar.API.pdb
 C:\Users\Helder\source\repos\StopCar.API\obj\Debug\net8.0\StopCar.API.genruntimeconfig.cache
 C:\Users\Helder\source\repos\StopCar.API\obj\Debug\net8.0\ref\StopCar.API.dll
+c:\Users\Helder\source\repos\StopCar.API\obj\Debug\net8.0\StopCar.API.sourcelink.json

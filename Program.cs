@@ -4,9 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using StopCar.API.Models;
 
 int opcao;
-
 List<Veiculos> VagasAtivas = new List<Veiculos>();
-// List<Veiculos> HistoricoDia = new List<Veiculos>();
 
 do
 {
@@ -58,33 +56,100 @@ do
         case 3:
             Console.WriteLine("==== STOPCAR | SAÍDA VEÍCULOS ====\n");
             Console.WriteLine($"Digite a placa do veículo a dar saída: ");
-            string saida = Console.ReadLine() ?? string.Empty;
+            string consultaPlaca = Console.ReadLine() ?? string.Empty;
 
-            foreach (var vagas in VagasAtivas) {
-                if (saida == vagas.placa)
+            var consulta = VagasAtivas.Find(vaga => vaga.placa == consultaPlaca);
+
+            if (consulta != null)
+            {
+                Console.WriteLine($"Veículo: {consulta.marca} {consulta.modelo} | Placa: {consulta.placa.ToUpper()}");
+                Console.WriteLine($"Entrada: {consulta.horaEntrada}");
+                Console.WriteLine($"Confirma saída do veículo placa {consulta.placa.ToUpper()}?\n1. Sim\n2. Não");
+
+                int confirmacao = Convert.ToInt32(Console.ReadLine()); // Input com conversão direta para int do texto, também para condicionais.
+
+                switch (confirmacao)
                 {
-                    Console.WriteLine($"Veículo: {vagas.marca} {vagas.modelo} | Placa: {vagas.placa}");
-                    Console.WriteLine($"Entrada: {vagas.horaEntrada}");
+                    case 1:
+                        DateTime horaSaida = DateTime.Now.AddMinutes(40);
 
-                    DateTime horaSaida = DateTime.Now;
-                    TimeSpan tempo = horaSaida - vagas.horaEntrada;
+                        TimeSpan tempo = horaSaida - consulta.horaEntrada; //Pega a diferença de tempo entre horário de entrada e saída.
+                        double minutos = Math.Round(tempo.TotalMinutes); //Transforma de TimeSpan para double, para que possa manipular em condicionais.
 
-                    Console.WriteLine($"Confirma saída do veículo placa {vagas.placa.ToUpper()}?\n1. Sim\n2.Não");
-                    int confirmacao = Convert.ToInt32(Console.ReadLine());
-                    switch (confirmacao)
-                    {
-                        case 1:
-                            Console.WriteLine($"Hora Saída: {horaSaida} | Tempo corrido: {tempo.TotalHours:00} {tempo.TotalMinutes:00}");
-                            break;
-                        default:
-                            break;
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Placa não consta no cadastro.");
+                        if (minutos > 0 && minutos <= 30)
+                        {
+                            Console.WriteLine("Valor a pagar: R$ 5,00");
+                            Console.WriteLine($"Hora Saída: {horaSaida} | Tempo corrido: {tempo.Hours:00}h {tempo.Minutes:00}m");
+                        }
+
+                        for (int cont = 0; minutos > 1; cont++)
+                        {
+                            if (minutos == 1)
+                            {
+                                double fracao = 5 + (cont * 2);
+                                Console.WriteLine(fracao);
+                                Console.WriteLine($"Valor a pagar: R$ {fracao}");
+                                Console.WriteLine($"Hora Saída: {horaSaida} | Tempo corrido: {tempo.Hours:00}h {tempo.Minutes:00}m");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Placa não encontrada.");
+                                break;
+                            }
+                        }
+                        break;
                 }
             }
+            else
+            {
+
+            }
+
+            // foreach (var vagas in VagasAtivas)
+            // {
+            //     bool check = vagas.placa.Contains(consultaPlaca);
+            //     if (check)
+            //     {
+            //         Console.WriteLine($"Veículo: {vagas.marca} {vagas.modelo} | Placa: {vagas.placa.ToUpper()}");
+            //         Console.WriteLine($"Entrada: {vagas.horaEntrada}");
+            //         Console.WriteLine($"Confirma saída do veículo placa {vagas.placa.ToUpper()}?\n1. Sim\n2. Não");
+
+            //         int confirmacao = Convert.ToInt32(Console.ReadLine()); // Input com conversão direta para int do texto, também para condicionais.
+
+            //         switch (confirmacao)
+            //         {
+            //             case 1:
+            //                 DateTime horaSaida = DateTime.Now.AddMinutes(40         );
+
+            //                 TimeSpan tempo = horaSaida - vagas.horaEntrada; //Pega a diferença de tempo entre horário de entrada e saída.
+            //                 double minutos = Math.Round(tempo.TotalMinutes); //Transforma de TimeSpan para double, para que possa manipular em condicionais.
+
+            //                 if (minutos > 0 && minutos <= 30)
+            //                 {
+            //                     Console.WriteLine("Valor a pagar: R$ 5,00");
+            //                     Console.WriteLine($"Hora Saída: {horaSaida} | Tempo corrido: {tempo.Hours:00}h {tempo.Minutes:00}m");
+            //                 }
+
+            //                 for (int cont = 0; minutos > 1; cont++)
+            //                 {
+            //                     if (minutos == 1)
+            //                     {
+            //                         double fracao = 5 + (cont * 2);
+            //                         Console.WriteLine(fracao);
+            //                         Console.WriteLine($"Valor a pagar: R$ {fracao}");
+            //                         Console.WriteLine($"Hora Saída: {horaSaida} | Tempo corrido: {tempo.Hours:00}h {tempo.Minutes:00}m");
+            //                     }
+            //                     else
+            //                     {
+            //                         Console.WriteLine("Placa não encontrada.");
+            //                     }
+            //                     break;
+            //                 }
+            //                 break;
+            //         }
+            //     }
+
+            // }
             break;
     }
 } while (opcao > 0 && opcao <= 3);
