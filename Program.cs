@@ -22,7 +22,7 @@ do
         case 1:
             Console.WriteLine("==== STOPCAR | ENTRADA VEÍCULO ====\n");
             Console.WriteLine("Marca: ");
-            string marca = Console.ReadLine() ?? string.Empty; // Sinceramente, não entendi porquê dessa sintaxe para especificar um input string.
+            string marca = Console.ReadLine() ?? string.Empty; // Também poderia ser 'string? marca = Console.ReadLine()'
             Console.WriteLine("\nModelo: ");
             string modelo = Console.ReadLine() ?? string.Empty;
             Console.WriteLine("\nPlaca: ");
