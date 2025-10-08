@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StopCar.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+004afcaace7620d4cf1da07dd96fd554d6e338ff")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+52bdd8c21b5a664ad30e847920603ca0f549bded")]
 [assembly: System.Reflection.AssemblyProductAttribute("StopCar.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StopCar.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

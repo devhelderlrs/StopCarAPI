@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Helder\\source\\repos\\StopCar.API\\StopCar.API.csproj": {}
+    "C:\\Users\\Helder\\source\\repos\\StopCar.API\\StopCar.API.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Helder\\source\\repos\\StopCar.API\\StopCar.API.csproj": {
+    "C:\\Users\\Helder\\source\\repos\\StopCar.API\\StopCar.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Helder\\source\\repos\\StopCar.API\\StopCar.API.csproj",
+        "projectUniqueName": "C:\\Users\\Helder\\source\\repos\\StopCar.API\\StopCar.API.csproj",
         "projectName": "StopCar.API",
-        "projectPath": "c:\\Users\\Helder\\source\\repos\\StopCar.API\\StopCar.API.csproj",
+        "projectPath": "C:\\Users\\Helder\\source\\repos\\StopCar.API\\StopCar.API.csproj",
         "packagesPath": "C:\\Users\\Helder\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Helder\\source\\repos\\StopCar.API\\obj\\",
+        "outputPath": "C:\\Users\\Helder\\source\\repos\\StopCar.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
